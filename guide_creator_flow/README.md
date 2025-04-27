@@ -1,56 +1,122 @@
-# {{crew_name}} Crew
+# CodeWriter Assistant
 
-Welcome to the {{crew_name}} Crew project, powered by [crewAI](https://crewai.com). This template is designed to help you set up a multi-agent AI system with ease, leveraging the powerful and flexible framework provided by crewAI. Our goal is to enable your agents to collaborate effectively on complex tasks, maximizing their collective intelligence and capabilities.
+A powerful AI-powered code generation and documentation tool built with crewAI. This project helps developers generate code implementations, documentation, and flow diagrams through an interactive UI interface.
+
+## Features
+
+- **Code Generation**: Generates code implementations in multiple programming languages
+- **Flow Diagram Creation**: Automatically creates Mermaid flow diagrams for code visualization
+- **Documentation**: Generates comprehensive documentation and reports
+- **Multi-Agent System**: Leverages multiple AI agents for different aspects of code creation
+  - Code Writer Agent: Generates the initial code implementation
+  - Code Reviewer Agent: Reviews and suggests improvements
+  - Flow Diagram Creator Agent: Creates visual representations of the code flow
+
+## Project Structure
+
+```
+guide_creator_flow/
+├── src/
+│   └── guide_creator_flow/
+│       ├── crews/
+│       │   └── code_writer/
+│       │       ├── config/
+│       │       │   ├── agents.yaml
+│       │       │   └── tasks.yaml
+│       │       └── code_writer.py
+│       └── main.py
+├── output/
+│   ├── code/
+│   └── reports/
+├── config/
+├── pyproject.toml
+└── README.md
+```
+
+## Prerequisites
+
+- Python >=3.10, <3.13
+- [UV](https://docs.astral.sh/uv/) package manager
+- [Ollama](https://ollama.ai/) for local LLM support
+- OpenAI API key (optional)
 
 ## Installation
 
-Ensure you have Python >=3.10 <3.13 installed on your system. This project uses [UV](https://docs.astral.sh/uv/) for dependency management and package handling, offering a seamless setup and execution experience.
-
-First, if you haven't already, install uv:
-
+1. Install UV if you haven't already:
 ```bash
 pip install uv
 ```
 
-Next, navigate to your project directory and install the dependencies:
-
-(Optional) Lock the dependencies and install them by using the CLI command:
+2. Clone the repository:
 ```bash
-crewai install
+git clone <repository-url>
+cd guide_creator_flow
 ```
 
-### Customizing
+3. Create and activate a virtual environment:
+```bash
+python -m venv .venv
+source .venv/bin/activate  # On Windows: .venv\Scripts\activate
+```
 
-**Add your `OPENAI_API_KEY` into the `.env` file**
-
-- Modify `src/guide_creator_flow/config/agents.yaml` to define your agents
-- Modify `src/guide_creator_flow/config/tasks.yaml` to define your tasks
-- Modify `src/guide_creator_flow/crew.py` to add your own logic, tools and specific args
-- Modify `src/guide_creator_flow/main.py` to add custom inputs for your agents and tasks
+4. Install dependencies:
+```bash
+uv pip install -e .
+```
 
 ## Running the Project
 
-To kickstart your flow and begin execution, run this from the root folder of your project:
+There are two ways to run the project:
 
+### 1. Command Line Interface
+
+Run the code generation flow from the command line:
 ```bash
-crewai run
+crewai flow kickoff
 ```
 
-This command initializes the guide_creator_flow Flow as defined in your configuration.
+This will:
+- Prompt for the program you want to build
+- Ask for the programming language
+- Generate the implementation
+- Create flow diagrams and documentation
+- Save outputs to the `output/` directory
 
-This example, unmodified, will run the create a `report.md` file with the output of a research on LLMs in the root folder.
+### 2. Streamlit UI Interface
 
-## Understanding Your Crew
+WIP
 
-The guide_creator_flow Crew is composed of multiple AI agents, each with unique roles, goals, and tools. These agents collaborate on a series of tasks, defined in `config/tasks.yaml`, leveraging their collective skills to achieve complex objectives. The `config/agents.yaml` file outlines the capabilities and configurations of each agent in your crew.
+## Output Structure
 
-## Support
+The project generates several files in the `output/` directory:
 
-For support, questions, or feedback regarding the {{crew_name}} Crew or crewAI.
+- `output/code/`: Contains generated code implementations
+- `output/reports/`: Contains:
+  - Implementation reports (markdown)
+  - Flow diagrams (Mermaid format)
+  - Documentation
 
-- Visit our [documentation](https://docs.crewai.com)
-- Reach out to us through our [GitHub repository](https://github.com/joaomdmoura/crewai)
-- [Join our Discord](https://discord.com/invite/X4JWnZnxPb)
-- [Chat with our docs](https://chatg.pt/DWjSBZn)
+## Local LLM Setup
 
-Let's create wonders together with the power and simplicity of crewAI.
+1. Install Ollama from [ollama.ai](https://ollama.ai/)
+2. Pull required models:
+```bash
+ollama pull gemma3
+ollama pull granite3.3
+```
+
+## Troubleshooting
+
+1. If you encounter LLM-related errors:
+   - Ensure Ollama is running locally
+   - Check if the required models are pulled
+   - Verify your API keys in `.env`
+
+
+## Contributing
+
+1. Fork the repository
+2. Create a feature branch
+3. Commit your changes
+4. Push to the branch
+5. Create a Pull Request
