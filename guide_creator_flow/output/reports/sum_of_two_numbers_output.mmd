@@ -1,0 +1,15 @@
+graph TD
+```mermaid
+TD
+    A[Start] --> B{Input: num1Str, num2Str};
+    B --> C{Validate: Are num1Str and num2Str null?};
+    C -- Yes --> D[Throw IllegalArgumentException: Both inputs cannot be null.];
+    C -- No --> E{Try: Parse num1Str to int};
+    E -- Success --> F{Try: Parse num2Str to int};
+    F -- Success --> G[Calculate sum: num1 + num2];
+    G --> H[Return sum];
+    F -- Success --> G;
+    F -- Failure --> I[Throw IllegalArgumentException: Both inputs must be valid integers.];
+    I --> H;
+    H --> J[End];
+```

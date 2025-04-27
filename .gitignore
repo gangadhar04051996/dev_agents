@@ -1,0 +1,75 @@
+# Python virtual environment
+.venv/
+venv/
+ENV/
+env/
+Lib/
+Scripts/
+include/
+
+.env
+__pycache__/
+lib/
+.DS_Store
+
+# Python cache files
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+
+# Distribution / packaging
+dist/
+build/
+*.egg-info/
+*.egg
+
+# IDE specific files
+.idea/
+.vscode/
+*.swp
+*.swo
+.DS_Store
+
+# Environment variables
+.env
+.env.*
+
+# Logs
+*.log
+logs/
+
+# Dependencies
+node_modules/
+
+# Keep these files
+!requirements.txt
+!pyproject.toml
+!setup.py
+!setup.cfg
+!README.md
+!LICENSE
+!.pre-commit-config.yaml
+!pytest.ini
+!conftest.py
+
+# Project specific
+*/Include/*
+*/Lib/*.*
+*/Scripts/*
+*/share/*
+*/site-packages/*
+*.exe
+.cfg
+
+# Keep source code and tests
+!src/
+!tests/
+!examples/
+!docs/
+
+# Keep configuration files
+!config/
+!.github/

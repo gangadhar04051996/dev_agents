@@ -1,0 +1,45 @@
+code_development_task:
+  description: >
+    Develop a fully functional implementation of {feature_name} in {programming_language}.
+    The code should follow {programming_language} conventions and include proper error handling,
+    input validation, and comprehensive comments. Consider edge cases and optimize for
+    performance where appropriate. ensure you're using current best practices and dependencies and save the code in a file with corresponding extension.
+  expected_output: >
+    Complete, well-documented source code for {feature_name} implementation that meets all
+    the requirements. The code should be ready for review with clear function/method
+    documentation and appropriate use of design patterns.
+    The output should be saved as {file_name}
+  agent: code_writer
+
+code_review_task:
+  description: >
+    Perform a comprehensive review of the provided {programming_language} code for {feature_name}.
+    Analyze the code for potential bugs, security vulnerabilities, performance issues,
+    and adherence to best practices. Consider edge cases that might not be handled and
+    identify areas for improvement in code structure and organization.
+  expected_output: >
+    A detailed code review report containing:
+    1. Overall assessment of code quality and readability
+    2. Specific issues identified (with line numbers where applicable)
+    3. Security concerns or potential vulnerabilities
+    4. Performance optimization opportunities
+    5. Recommendations for improving structure or implementation
+    6. Suggestions for better error handling or edge case management
+    All formatted in markdown without code blocks.
+  agent: code_reviewer
+
+flow_diagram_task:
+  description: >
+    Create a comprehensive flow diagram code using Mermaid syntax that visualizes the implementation of {feature_name}.
+    The diagram should illustrate the control flow, key decision points, data transformations,
+    and component interactions. Make sure to capture all major processes and state transitions
+    in the implementation.
+    Rules:
+    *) make sure there are no special characters in the diagram names.
+
+  expected_output: >
+    A clear, well-structured Mermaid diagram that accurately represents the {feature_name}
+    implementation flow. The diagram should be visually organized, include appropriate
+    labels for all components, and follow logical progression from start to finish.
+    The output should be saved as {feature_name}_mermaid.mmd
+  agent: flow_diagram_creator
